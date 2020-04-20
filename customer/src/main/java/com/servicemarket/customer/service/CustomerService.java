@@ -15,19 +15,23 @@ public class CustomerService implements CustomerInterface{
 
 	@Override
 	public String signUp(Customer customer) {
-		repo.save(customer);
-		return "saved customer";
-	}
-
-	@Override
-	public String getUserEmail(String email) {
-		int e = repo.getCustomerByEmail(email);
-		if(e>=1) {
+		if(getUserEmail(customer.getEmail())){
 			return "email exists";
-		}else {
-			return "email doenot exists";
-		}
+			}
+		else{
+			repo.save(customer.getEmail());
+		return "successfully signed up";}
 	}
+	
+	@Override
+		public boolean getUserEmail(String email) {
+			int e = repo.getCustomerByEmail(email);
+			if(e>=1) {
+				return true;
+			}else {
+				return false;
+			}
+		}
 
 	@Override
 	public String signIn(String userName, String password) {

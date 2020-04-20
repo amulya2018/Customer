@@ -17,5 +17,7 @@ public interface CustomerRepository extends CrudRepository<Customer, Integer>{
 	
 	@Query(value="select count(*) from customer where email = ?1 ", nativeQuery=true)
 	int getCustomerByEmail(String email);
+
+	void save(String email);
 	
 }

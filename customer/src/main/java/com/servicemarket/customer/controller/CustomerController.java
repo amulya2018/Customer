@@ -25,17 +25,16 @@ public class CustomerController {
 		return service.signUp(customer);
 	}
 	
-	@RequestMapping("/signin/{name}/{password}")
+	@RequestMapping("/signin/{email}/{password}")
 	public String signIn(@PathVariable String username, @PathVariable String password) {
 		return service.signIn(username, password);
 	}
-	
 	@RequestMapping("/{id}")
-	Optional<Customer> getDetailsByCid(@PathVariable int id){
+	Optional<Customer> getDetailsByCid(@PathVariable Integer id){
 		return service.getDetailsByCid(id);
 	}
 	@RequestMapping("/email/{email}")
-	String getUserByEmail(@PathVariable String email){
+	boolean getUserByEmail(@PathVariable String email){
 		return service.getUserEmail(email);
 	}
 	

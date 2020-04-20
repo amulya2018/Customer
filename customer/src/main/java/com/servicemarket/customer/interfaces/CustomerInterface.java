@@ -14,7 +14,7 @@ public interface CustomerInterface {
 		public String signUp(Customer customer);
 		
 		//this is during 
-		public String getUserEmail(String email);
+		public boolean getUserEmail(String email);
 		//for signin use @PathVariable
 		public String signIn(String userName, String password);
 		
